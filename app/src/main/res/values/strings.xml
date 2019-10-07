@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Babylon Android Tech Test</string>
+
+  <!-- Activities -->
+  <string name="post_details_activity_name">Post details</string>
+
+  <!-- Dialogs -->
+  <string name="btn_text_retry">Retry</string>
+  <string name="progress_dialog_message">Loading…</string>
+
+  <!-- Error messages -->
+  <string name="error_message_generic">An error has occurred</string>
+  <string name="error_title_generic">Oops!</string>
+</resources>
