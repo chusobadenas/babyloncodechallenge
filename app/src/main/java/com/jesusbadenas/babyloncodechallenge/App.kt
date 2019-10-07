@@ -4,9 +4,6 @@ import com.jesusbadenas.babyloncodechallenge.di.components.DaggerApplicationComp
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 
-/**
- * Android main Application
- */
 class App : DaggerApplication() {
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {

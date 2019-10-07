@@ -9,7 +9,6 @@ import javax.inject.Singleton
 class Navigator
 @Inject
 constructor() {
-
     fun navigateToPostDetails(
         context: Context?,
         id: Int,
