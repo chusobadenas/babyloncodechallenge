@@ -14,9 +14,9 @@ constructor() {
         return CommentEntity(commentData.postId, commentData.id, commentData.body)
     }
 
-    fun transform(commentDataCollection: Collection<CommentData>): List<CommentEntity> {
+    fun transform(commentDataList: List<CommentData>): List<CommentEntity> {
         val commentEntityList = ArrayList<CommentEntity>()
-        for (commentData in commentDataCollection) {
+        for (commentData in commentDataList) {
             val commentEntity = transform(commentData)
             commentEntityList.add(commentEntity)
         }

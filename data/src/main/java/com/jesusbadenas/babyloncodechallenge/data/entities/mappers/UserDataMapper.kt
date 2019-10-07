@@ -14,9 +14,9 @@ constructor() {
         return UserEntity(userData.id, userData.name)
     }
 
-    fun transform(userDataCollection: Collection<UserData>): List<UserEntity> {
+    fun transform(userDataList: List<UserData>): List<UserEntity> {
         val userEntityList = ArrayList<UserEntity>()
-        for (userData in userDataCollection) {
+        for (userData in userDataList) {
             val userEntity = transform(userData)
             userEntityList.add(userEntity)
         }

@@ -14,9 +14,9 @@ constructor() {
         return PostEntity(postData.userId, postData.id, postData.title, postData.body)
     }
 
-    fun transform(postDataCollection: Collection<PostData>): List<PostEntity> {
+    fun transform(postDataList: List<PostData>): List<PostEntity> {
         val postEntityList = ArrayList<PostEntity>()
-        for (postData in postDataCollection) {
+        for (postData in postDataList) {
             val postEntity = transform(postData)
             postEntityList.add(postEntity)
         }
