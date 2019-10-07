@@ -111,9 +111,7 @@ class PostListFragment : BaseMvpFragment(), PostListMvpView {
     }
 
     override fun viewPost(post: Post) {
-        if (postListListener != null) {
-            postListListener?.onPostClicked(post)
-        }
+        postListListener?.onPostClicked(post)
     }
 
     private fun setupRecyclerView() {
