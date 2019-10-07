@@ -2,7 +2,6 @@ package com.jesusbadenas.babyloncodechallenge.common
 
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
-import com.jesusbadenas.babyloncodechallenge.di.modules.ActivityModule
 import com.jesusbadenas.babyloncodechallenge.navigation.Navigator
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
@@ -12,9 +11,6 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
     @Inject
     lateinit var navigator: Navigator
 
-    val activityModule: ActivityModule
-        get() = ActivityModule(this)
-
     fun addFragment(containerViewId: Int, fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .add(containerViewId, fragment)
@@ -22,8 +18,8 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
     }
 
     fun replaceFragment(containerViewId: Int, fragment: Fragment, addToBackStack: Boolean) {
-        var transaction = supportFragmentManager.beginTransaction()
-            .replace(containerViewId, fragment)
+        var transaction =
+            supportFragmentManager.beginTransaction().replace(containerViewId, fragment)
         if (addToBackStack) {
             transaction = transaction.addToBackStack(null)
         }

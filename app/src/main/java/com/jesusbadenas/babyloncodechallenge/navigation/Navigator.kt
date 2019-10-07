@@ -10,16 +10,10 @@ class Navigator
 @Inject
 constructor() {
     fun navigateToPostDetails(
-        context: Context?,
-        id: Int,
-        title: String,
-        body: String,
-        userId: Int
+        context: Context, id: Int, title: String, body: String, userId: Int
     ) {
-        if (context != null) {
-            val intentToLaunch =
-                PostDetailsActivity.getCallingIntent(context, id, title, body, userId)
-            context.startActivity(intentToLaunch)
-        }
+        val intentToLaunch = PostDetailsActivity.getCallingIntent(context, id, title, body, userId)
+        context.startActivity(intentToLaunch)
+
     }
 }
