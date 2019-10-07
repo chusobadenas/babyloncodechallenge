@@ -18,6 +18,7 @@ constructor(
 ) : UserRepository {
 
     override fun user(userId: Int): Single<UserEntity> {
+        val defaultUserEntity = UserEntity(-1, "")
         return apiService.getUsers()
             .map { userDataList ->
                 userDataMapper.transform(userDataList)
@@ -28,6 +29,6 @@ constructor(
             .filter { userEntity ->
                 userEntity.id == userId
             }
-            .first(null)
+            .first(defaultUserEntity)
     }
 }
