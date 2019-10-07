@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -14,6 +15,7 @@ import butterknife.OnClick
 import butterknife.Unbinder
 import com.jesusbadenas.babyloncodechallenge.R
 import com.jesusbadenas.babyloncodechallenge.common.BaseMvpFragment
+import com.jesusbadenas.babyloncodechallenge.common.UIUtils
 import javax.inject.Inject
 
 class PostDetailsFragment : BaseMvpFragment(), PostDetailsMvpView {
@@ -23,6 +25,8 @@ class PostDetailsFragment : BaseMvpFragment(), PostDetailsMvpView {
 
     @BindView(R.id.tv_title)
     lateinit var textViewTitle: TextView
+    @BindView(R.id.img_author)
+    lateinit var imageViewAuthor: ImageView
     @BindView(R.id.tv_author)
     lateinit var textViewAuthor: TextView
     @BindView(R.id.tv_comments)
@@ -76,9 +80,8 @@ class PostDetailsFragment : BaseMvpFragment(), PostDetailsMvpView {
 
     override fun showPostDetails(name: String, nComments: Long) {
         val pdActivity: PostDetailsActivity = activity as PostDetailsActivity
-        textViewTitle.text = pdActivity.postTitle
         textViewAuthor.text = name
-        textViewComments.text = nComments.toString()
+        textViewComments.text = getString(R.string.post_comments, nComments)
         textViewBody.text = pdActivity.postBody
     }
 
@@ -101,7 +104,17 @@ class PostDetailsFragment : BaseMvpFragment(), PostDetailsMvpView {
     }
 
     private fun loadPostDetails() {
+        // Title
         val pdActivity: PostDetailsActivity = activity as PostDetailsActivity
+        textViewTitle.text = pdActivity.postTitle
+        // Author image
+        val userId = pdActivity.userId
+        UIUtils.loadImageUrl(
+            context(),
+            imageViewAuthor,
+            "https://api.adorable.io/avatars/100/$userId@adorable.io.png"
+        )
+        // Load more details
         postDetailsPresenter.initialize(pdActivity.postId, pdActivity.userId)
     }
 

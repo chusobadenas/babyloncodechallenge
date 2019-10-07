@@ -5,6 +5,10 @@
   <!-- Activities -->
   <string name="post_details_activity_name">Post details</string>
 
+  <!-- Text -->
+  <string name="post_comments">%1$d comments</string>
+  <string name="img_author_description">Author image</string>
+
   <!-- Dialogs -->
   <string name="btn_text_retry">Retry</string>
   <string name="progress_dialog_message">Loading…</string>
